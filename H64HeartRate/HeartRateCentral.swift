@@ -9,6 +9,7 @@ private let hrMeasurement = CBUUID(string: "2A37")  // Heart Rate Measurement (N
 final class HeartRateCentral: NSObject, ObservableObject {
     @Published var status: String = "Инициализация…"
     @Published var bpm: Int? = nil
+    @Published var deviceName: String? = nil
 
     private var central: CBCentralManager!
     private var peripheral: CBPeripheral?
@@ -37,6 +38,7 @@ final class HeartRateCentral: NSObject, ObservableObject {
         }
         peripheral = nil
         bpm = nil
+        deviceName = nil
         status = "Остановлено"
     }
 
@@ -78,6 +80,7 @@ extension HeartRateCentral: CBCentralManagerDelegate, CBPeripheralDelegate {
                         rssi RSSI: NSNumber) {
         self.peripheral = peripheral
         self.peripheral?.delegate = self
+        deviceName = peripheral.name
 
         status = "Найдено: \(peripheral.name ?? "без имени"). Подключение…"
         central.stopScan()
@@ -93,6 +96,7 @@ extension HeartRateCentral: CBCentralManagerDelegate, CBPeripheralDelegate {
                         didDisconnectPeripheral peripheral: CBPeripheral,
                         error: Error?) {
         bpm = nil
+        deviceName = nil
         status = "Отключено. Повторный поиск…"
         self.peripheral = nil
         start()

@@ -7,6 +7,12 @@ struct ContentView: View {
         VStack(spacing: 14) {
             Text(hr.status)
                 .font(.headline)
+            
+            if let name = hr.deviceName, !name.isEmpty {
+                    Text(name)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
 
             Text(hr.bpm.map { "\($0) BPM" } ?? "—")
                 .font(.system(size: 52, weight: .bold))
