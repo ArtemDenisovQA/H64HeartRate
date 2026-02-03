@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3BBE6E802F3280AC00468B7E /* H64HeartRateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE6E7F2F3280AC00468B7E /* H64HeartRateApp.swift */; };
+		3BBE6E822F3280AC00468B7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE6E812F3280AC00468B7E /* ContentView.swift */; };
+		3BBE6E842F3280B100468B7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE6E832F3280B100468B7E /* Assets.xcassets */; };
+		3BBE6E872F3280B100468B7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BBE6E862F3280B100468B7E /* Preview Assets.xcassets */; };
+		3BBE6E922F3280B200468B7E /* H64HeartRateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE6E912F3280B200468B7E /* H64HeartRateTests.swift */; };
+		3BBE6E9C2F3280B200468B7E /* H64HeartRateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE6E9B2F3280B200468B7E /* H64HeartRateUITests.swift */; };
+		3BBE6E9E2F3280B200468B7E /* H64HeartRateUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE6E9D2F3280B200468B7E /* H64HeartRateUITestsLaunchTests.swift */; };
+		3BBE6EAB2F328FBF00468B7E /* HeartRateCentral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBE6EAA2F328FBF00468B7E /* HeartRateCentral.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3BBE6E8E2F3280B200468B7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BBE6E742F3280AC00468B7E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BBE6E7B2F3280AC00468B7E;
+			remoteInfo = H64HeartRate;
+		};
+		3BBE6E982F3280B200468B7E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BBE6E742F3280AC00468B7E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3BBE6E7B2F3280AC00468B7E;
+			remoteInfo = H64HeartRate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3BBE6E7C2F3280AC00468B7E /* H64HeartRate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = H64HeartRate.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BBE6E7F2F3280AC00468B7E /* H64HeartRateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H64HeartRateApp.swift; sourceTree = "<group>"; };
+		3BBE6E812F3280AC00468B7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3BBE6E832F3280B100468B7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3BBE6E862F3280B100468B7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3BBE6E882F3280B100468B7E /* H64HeartRate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = H64HeartRate.entitlements; sourceTree = "<group>"; };
+		3BBE6E8D2F3280B200468B7E /* H64HeartRateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = H64HeartRateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BBE6E912F3280B200468B7E /* H64HeartRateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H64HeartRateTests.swift; sourceTree = "<group>"; };
+		3BBE6E972F3280B200468B7E /* H64HeartRateUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = H64HeartRateUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BBE6E9B2F3280B200468B7E /* H64HeartRateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H64HeartRateUITests.swift; sourceTree = "<group>"; };
+		3BBE6E9D2F3280B200468B7E /* H64HeartRateUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = H64HeartRateUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3BBE6EAA2F328FBF00468B7E /* HeartRateCentral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateCentral.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3BBE6E792F3280AC00468B7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BBE6E8A2F3280B200468B7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BBE6E942F3280B200468B7E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3BBE6E732F3280AC00468B7E = {
+			isa = PBXGroup;
+			children = (
+				3BBE6E7E2F3280AC00468B7E /* H64HeartRate */,
+				3BBE6E902F3280B200468B7E /* H64HeartRateTests */,
+				3BBE6E9A2F3280B200468B7E /* H64HeartRateUITests */,
+				3BBE6E7D2F3280AC00468B7E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3BBE6E7D2F3280AC00468B7E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3BBE6E7C2F3280AC00468B7E /* H64HeartRate.app */,
+				3BBE6E8D2F3280B200468B7E /* H64HeartRateTests.xctest */,
+				3BBE6E972F3280B200468B7E /* H64HeartRateUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3BBE6E7E2F3280AC00468B7E /* H64HeartRate */ = {
+			isa = PBXGroup;
+			children = (
+				3BBE6E7F2F3280AC00468B7E /* H64HeartRateApp.swift */,
+				3BBE6E812F3280AC00468B7E /* ContentView.swift */,
+				3BBE6E832F3280B100468B7E /* Assets.xcassets */,
+				3BBE6E882F3280B100468B7E /* H64HeartRate.entitlements */,
+				3BBE6E852F3280B100468B7E /* Preview Content */,
+				3BBE6EAA2F328FBF00468B7E /* HeartRateCentral.swift */,
+			);
+			path = H64HeartRate;
+			sourceTree = "<group>";
+		};
+		3BBE6E852F3280B100468B7E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3BBE6E862F3280B100468B7E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3BBE6E902F3280B200468B7E /* H64HeartRateTests */ = {
+			isa = PBXGroup;
+			children = (
+				3BBE6E912F3280B200468B7E /* H64HeartRateTests.swift */,
+			);
+			path = H64HeartRateTests;
+			sourceTree = "<group>";
+		};
+		3BBE6E9A2F3280B200468B7E /* H64HeartRateUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3BBE6E9B2F3280B200468B7E /* H64HeartRateUITests.swift */,
+				3BBE6E9D2F3280B200468B7E /* H64HeartRateUITestsLaunchTests.swift */,
+			);
+			path = H64HeartRateUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3BBE6E7B2F3280AC00468B7E /* H64HeartRate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BBE6EA12F3280B200468B7E /* Build configuration list for PBXNativeTarget "H64HeartRate" */;
+			buildPhases = (
+				3BBE6E782F3280AC00468B7E /* Sources */,
+				3BBE6E792F3280AC00468B7E /* Frameworks */,
+				3BBE6E7A2F3280AC00468B7E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = H64HeartRate;
+			productName = H64HeartRate;
+			productReference = 3BBE6E7C2F3280AC00468B7E /* H64HeartRate.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3BBE6E8C2F3280B200468B7E /* H64HeartRateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BBE6EA42F3280B200468B7E /* Build configuration list for PBXNativeTarget "H64HeartRateTests" */;
+			buildPhases = (
+				3BBE6E892F3280B200468B7E /* Sources */,
+				3BBE6E8A2F3280B200468B7E /* Frameworks */,
+				3BBE6E8B2F3280B200468B7E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BBE6E8F2F3280B200468B7E /* PBXTargetDependency */,
+			);
+			name = H64HeartRateTests;
+			productName = H64HeartRateTests;
+			productReference = 3BBE6E8D2F3280B200468B7E /* H64HeartRateTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3BBE6E962F3280B200468B7E /* H64HeartRateUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BBE6EA72F3280B200468B7E /* Build configuration list for PBXNativeTarget "H64HeartRateUITests" */;
+			buildPhases = (
+				3BBE6E932F3280B200468B7E /* Sources */,
+				3BBE6E942F3280B200468B7E /* Frameworks */,
+				3BBE6E952F3280B200468B7E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BBE6E992F3280B200468B7E /* PBXTargetDependency */,
+			);
+			name = H64HeartRateUITests;
+			productName = H64HeartRateUITests;
+			productReference = 3BBE6E972F3280B200468B7E /* H64HeartRateUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3BBE6E742F3280AC00468B7E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					3BBE6E7B2F3280AC00468B7E = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					3BBE6E8C2F3280B200468B7E = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 3BBE6E7B2F3280AC00468B7E;
+					};
+					3BBE6E962F3280B200468B7E = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 3BBE6E7B2F3280AC00468B7E;
+					};
+				};
+			};
+			buildConfigurationList = 3BBE6E772F3280AC00468B7E /* Build configuration list for PBXProject "H64HeartRate" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3BBE6E732F3280AC00468B7E;
+			productRefGroup = 3BBE6E7D2F3280AC00468B7E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3BBE6E7B2F3280AC00468B7E /* H64HeartRate */,
+				3BBE6E8C2F3280B200468B7E /* H64HeartRateTests */,
+				3BBE6E962F3280B200468B7E /* H64HeartRateUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3BBE6E7A2F3280AC00468B7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BBE6E872F3280B100468B7E /* Preview Assets.xcassets in Resources */,
+				3BBE6E842F3280B100468B7E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BBE6E8B2F3280B200468B7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BBE6E952F3280B200468B7E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3BBE6E782F3280AC00468B7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BBE6E822F3280AC00468B7E /* ContentView.swift in Sources */,
+				3BBE6E802F3280AC00468B7E /* H64HeartRateApp.swift in Sources */,
+				3BBE6EAB2F328FBF00468B7E /* HeartRateCentral.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BBE6E892F3280B200468B7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BBE6E922F3280B200468B7E /* H64HeartRateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BBE6E932F3280B200468B7E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BBE6E9E2F3280B200468B7E /* H64HeartRateUITestsLaunchTests.swift in Sources */,
+				3BBE6E9C2F3280B200468B7E /* H64HeartRateUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BBE6E8F2F3280B200468B7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BBE6E7B2F3280AC00468B7E /* H64HeartRate */;
+			targetProxy = 3BBE6E8E2F3280B200468B7E /* PBXContainerItemProxy */;
+		};
+		3BBE6E992F3280B200468B7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3BBE6E7B2F3280AC00468B7E /* H64HeartRate */;
+			targetProxy = 3BBE6E982F3280B200468B7E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3BBE6E9F2F3280B200468B7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3BBE6EA02F3280B200468B7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		3BBE6EA22F3280B200468B7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = H64HeartRate/H64HeartRate.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"H64HeartRate/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Нужно для подключения к датчику пульса Magene H64 и чтения BPM";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "inline1-rambler.ru.H64HeartRate";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3BBE6EA32F3280B200468B7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = H64HeartRate/H64HeartRate.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"H64HeartRate/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Нужно для подключения к датчику пульса Magene H64 и чтения BPM";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "inline1-rambler.ru.H64HeartRate";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		3BBE6EA52F3280B200468B7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "inline1-rambler.ru.H64HeartRateTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/H64HeartRate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/H64HeartRate";
+			};
+			name = Debug;
+		};
+		3BBE6EA62F3280B200468B7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "inline1-rambler.ru.H64HeartRateTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/H64HeartRate.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/H64HeartRate";
+			};
+			name = Release;
+		};
+		3BBE6EA82F3280B200468B7E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "inline1-rambler.ru.H64HeartRateUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = H64HeartRate;
+			};
+			name = Debug;
+		};
+		3BBE6EA92F3280B200468B7E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "inline1-rambler.ru.H64HeartRateUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = H64HeartRate;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3BBE6E772F3280AC00468B7E /* Build configuration list for PBXProject "H64HeartRate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BBE6E9F2F3280B200468B7E /* Debug */,
+				3BBE6EA02F3280B200468B7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BBE6EA12F3280B200468B7E /* Build configuration list for PBXNativeTarget "H64HeartRate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BBE6EA22F3280B200468B7E /* Debug */,
+				3BBE6EA32F3280B200468B7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BBE6EA42F3280B200468B7E /* Build configuration list for PBXNativeTarget "H64HeartRateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BBE6EA52F3280B200468B7E /* Debug */,
+				3BBE6EA62F3280B200468B7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BBE6EA72F3280B200468B7E /* Build configuration list for PBXNativeTarget "H64HeartRateUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BBE6EA82F3280B200468B7E /* Debug */,
+				3BBE6EA92F3280B200468B7E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3BBE6E742F3280AC00468B7E /* Project object */;
+}
