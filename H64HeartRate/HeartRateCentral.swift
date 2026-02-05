@@ -142,7 +142,10 @@ extension HeartRateCentral: CBCentralManagerDelegate, CBPeripheralDelegate {
                 status = "Подписка на пульс…"
                 peripheral.setNotifyValue(true, for: c)
             } else if c.uuid == batteryLevelChar {
-                // Некоторые устройства шлют notify, но чаще батарея просто читается (read)
+                // 1) Всегда читаем батарею сразу после подключения
+                peripheral.readValue(for: c)
+                // 2) Если устройство поддерживает notify — включаем, чтобы получать обновления при изменении
+
                 if c.properties.contains(.notify) {
                     peripheral.setNotifyValue(true, for: c)
                 } else {
@@ -163,11 +166,11 @@ extension HeartRateCentral: CBCentralManagerDelegate, CBPeripheralDelegate {
         guard let data = characteristic.value else { return }
         
         if characteristic.uuid == batteryLevelChar {
-            if let first = data.first {
-                batteryLevel = Int(first)   // 0...100
-            }
+            guard let data = characteristic.value, let first = data.first else { return }
+            batteryLevel = Int(first)     // 0...100
             return
         }
+
         
         if characteristic.uuid == hrMeasurement,
            let hr = parseHeartRate(data) {
