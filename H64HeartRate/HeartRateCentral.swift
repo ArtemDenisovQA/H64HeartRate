@@ -7,12 +7,18 @@ private let hrMeasurement = CBUUID(string: "2A37")  // Heart Rate Measurement (N
 private let batteryService = CBUUID(string: "180F")     // Battery Service
 private let batteryLevelChar = CBUUID(string: "2A19")   // Battery Level (%)
 
+struct HeartRateSample: Identifiable {
+    let id = UUID()
+    let time: Date
+    let bpm: Int
+}
 
 
 @MainActor
 final class HeartRateCentral: NSObject, ObservableObject {
     @Published var status: String = "Инициализация…"
     @Published var bpm: Int? = nil
+    @Published var samples: [HeartRateSample] = []
     @Published var deviceName: String? = nil
     @Published var batteryLevel: Int? = nil
     
@@ -24,6 +30,11 @@ final class HeartRateCentral: NSObject, ObservableObject {
         super.init()
         central = CBCentralManager(delegate: self, queue: nil)
     }
+    
+    func clearSamples() {
+        samples.removeAll()
+    }
+
     
     func start() {
         guard central.state == .poweredOn else {
@@ -175,6 +186,12 @@ extension HeartRateCentral: CBCentralManagerDelegate, CBPeripheralDelegate {
         if characteristic.uuid == hrMeasurement,
            let hr = parseHeartRate(data) {
             bpm = hr
+            samples.append(HeartRateSample(time: Date(), bpm: hr))
+            // ограничим размер, чтобы не рос бесконечно (например последние 300 точек)
+            if samples.count > 300 {
+                samples.removeFirst(samples.count - 300)
+            }
+
             status = "Пульс обновляется"
         }
         

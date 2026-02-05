@@ -1,4 +1,6 @@
 import SwiftUI
+import Charts
+
 
 struct ContentView: View {
     @StateObject private var hr = HeartRateCentral()
@@ -18,11 +20,22 @@ struct ContentView: View {
             Text(hr.bpm.map { "\($0) BPM" } ?? "—")
                 .font(.system(size: 52, weight: .bold))
                 .monospacedDigit()
+            
+            Chart(hr.samples) { s in
+                LineMark(
+                    x: .value("Time", s.time),
+                    y: .value("BPM", s.bpm)
+                )
+            }
+            .frame(height: 220)
+
 
 
             HStack {
                 Button("Старт") { hr.start() }
                 Button("Стоп") { hr.stop() }
+                Button("Очистить график") { hr.clearSamples() }
+
             }
         }
         .padding(20)

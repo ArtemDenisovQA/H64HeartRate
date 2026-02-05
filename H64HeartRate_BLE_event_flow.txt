@@ -1,0 +1,187 @@
+Поток событий CoreBluetooth в приложении H64HeartRate (macOS SwiftUI)
+==================================================================
+
+Контекст
+--------
+• Mac выступает как Central (центральное устройство BLE).
+• Датчик Magene H64 выступает как Peripheral (периферийное BLE-устройство).
+• Мы читаем стандартный BLE-профиль Heart Rate:
+  - Service: 180D (Heart Rate Service)
+  - Characteristic: 2A37 (Heart Rate Measurement, Notify)
+
+Общая идея
+----------
+Вы в коде вызываете “команды” (scan/connect/discover/subscribe),
+а ответы приходят “событиями” (delegate callbacks). Эти события вызываются системой.
+
+Цепочка событий от запуска до получения BPM
+-------------------------------------------
+
+0) Создание объекта HeartRateCentral
+   • ContentView создаёт:
+       @StateObject private var hr = HeartRateCentral()
+   • В init() HeartRateCentral создаётся менеджер BLE:
+       central = CBCentralManager(delegate: self, queue: nil)
+
+   Что это даёт:
+   - CoreBluetooth начинает определять состояние Bluetooth и сообщит его через callback.
+
+1) Состояние Bluetooth изменилось / стало известно
+   Callback:
+     centralManagerDidUpdateState(_ central: CBCentralManager)
+
+   Почему вызывается:
+   - Сразу после создания CBCentralManager.
+   - Каждый раз, когда меняется состояние Bluetooth.
+
+   Что делает наш код:
+   - Если state == .poweredOn → запускаем start()
+   - Иначе показываем статус (Bluetooth выключен / нет разрешения и т.д.)
+
+2) Старт сканирования (наша команда)
+   Метод (наш):
+     start()
+
+   Внутри:
+     central.scanForPeripherals(withServices: [hrService], options: ...)
+
+   Что это значит:
+   - “Ищи рядом устройства, которые рекламируют сервис 180D (Heart Rate).”
+   - Фильтр по сервису уменьшает мусор (не показываются все BLE устройства подряд).
+
+3) Найдено устройство (H64)
+   Callback:
+     centralManager(_:didDiscover:advertisementData:rssi:)
+
+   Почему вызывается:
+   - Во время scanForPeripherals система нашла подходящее устройство.
+
+   Что делает наш код:
+   - Сохраняет peripheral:
+       self.peripheral = peripheral
+   - Назначает delegate для peripheral:
+       self.peripheral?.delegate = self
+   - Сохраняет имя:
+       deviceName = peripheral.name
+   - Останавливает сканирование:
+       central.stopScan()
+   - Начинает подключение:
+       central.connect(peripheral, options: nil)
+
+   Важно:
+   - Мы подключаемся к ПЕРВОМУ найденному устройству с 180D.
+     Если рядом несколько HRM-датчиков, лучше сделать список выбора.
+
+4) Подключение установлено
+   Callback:
+     centralManager(_:didConnect:)
+
+   Почему вызывается:
+   - Соединение с peripheral успешно установлено.
+
+   Что делает наш код дальше:
+   - Запрашивает сервисы у peripheral:
+       peripheral.discoverServices([hrService])
+
+   Важно:
+   - “Подключено” ≠ “пульс уже идёт”.
+   - Сначала нужно найти сервисы и характеристики и подписаться на уведомления.
+
+5) Пришёл список сервисов устройства
+   Callback:
+     peripheral(_:didDiscoverServices:)
+
+   Почему вызывается:
+   - Ответ на discoverServices(...)
+
+   Что делает наш код:
+   - Находит сервис 180D среди peripheral.services
+   - Запрашивает характеристику 2A37 внутри этого сервиса:
+       peripheral.discoverCharacteristics([hrMeasurement], for: service180D)
+
+6) Пришёл список характеристик сервиса 180D
+   Callback:
+     peripheral(_:didDiscoverCharacteristicsFor:error:)
+
+   Почему вызывается:
+   - Ответ на discoverCharacteristics(...)
+
+   Что делает наш код:
+   - Находит характеристику 2A37
+   - Включает уведомления (подписку):
+       peripheral.setNotifyValue(true, for: characteristic2A37)
+
+   Смысл:
+   - Мы просим устройство “присылай новые значения автоматически” (Notify).
+   - Это не разовое чтение, а поток обновлений.
+
+7) Пришло новое значение пульса (BPM)
+   Callback:
+     peripheral(_:didUpdateValueFor:error:)
+
+   Почему вызывается:
+   - Устройство прислало уведомление (notify) по 2A37.
+
+   Что делает наш код:
+   - Забирает Data из characteristic.value
+   - Парсит формат 2A37:
+     • bytes[0] = flags
+     • flags bit0:
+         0 → HR в bytes[1] (UInt8)
+         1 → HR в bytes[1..2] (UInt16 little-endian)
+   - Публикует значение:
+       bpm = hr
+
+   Почему UI обновляется сам:
+   - bpm объявлен как @Published
+   - ContentView подписан на HeartRateCentral как @StateObject
+   - SwiftUI перерисовывает экран при изменении @Published полей.
+
+Ветка “разрыв соединения”
+-------------------------
+
+8) Соединение разорвалось
+   Callback:
+     centralManager(_:didDisconnectPeripheral:error:)
+
+   Почему вызывается:
+   - Датчик уснул (сняли ремень)
+   - Вышли из зоны
+   - Другое приложение перехватило датчик
+   - Ошибка связи
+
+   Что делает наш код:
+   - Сбрасывает bpm и deviceName (чтобы UI не показывал “старые” данные)
+   - Ставит статус “Отключено…”
+   - (в вашей версии) вызывает start() для автоматического переподключения
+
+Почему deviceName нужно сбрасывать и в stop(), и в didDisconnectPeripheral
+-------------------------------------------------------------------------
+• stop() вызывается ТОЛЬКО если пользователь нажал кнопку “Стоп”.
+• didDisconnectPeripheral вызывается если датчик отключился САМ (без кнопки).
+Если сбрасывать deviceName только в stop(), то при “само-отключении”
+в интерфейсе может остаться старое имя, хотя устройства уже нет.
+
+Короткая “цепочка в одну строку”
+--------------------------------
+CBCentralManager init →
+centralManagerDidUpdateState(poweredOn) →
+start() → scanForPeripherals →
+didDiscover → connect →
+didConnect → discoverServices →
+didDiscoverServices → discoverCharacteristics →
+didDiscoverCharacteristics → setNotifyValue(true) →
+didUpdateValueFor → bpm обновляется
+(если пропала связь) didDisconnectPeripheral → сброс → start()
+
+Мини-советы по отладке
+----------------------
+• “Сканирование… и не находит”:
+  - наденьте ремень, смочите электроды (датчик может “спать” без контакта)
+  - убедитесь, что датчик не подключён к другому приложению/устройству
+
+• “Подключается, но BPM не идёт”:
+  - проверьте, что включены notify для 2A37 (setNotifyValue(true, ...))
+  - проверьте App Sandbox → Bluetooth, и Info.plist (Bluetooth usage description)
+
+Конец.
